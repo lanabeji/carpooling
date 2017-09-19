@@ -84,6 +84,7 @@ exports.darUsuarios = function (callback){
 };
 
 //Insera un usuario en la bd con los valores dados por parametro con nuevo
+
 exports.crearUsuario = function createUsuario(nuevo) {
 
     MongoClient.connect(url, function(err, db) {
