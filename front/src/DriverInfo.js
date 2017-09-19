@@ -4,6 +4,10 @@ class Driver extends Component {
 
     constructor(props){
         super(props);
+
+        const type = props.type;
+
+        console.log("Hola");
     }
 
     render(){

@@ -1,4 +1,5 @@
 import React, {Component} from 'react';
+import ReactDOM from 'react-dom';
 import Driver from './DriverInfo.js';
 
 
@@ -24,8 +25,6 @@ class Register extends React.Component {
         const value = target.value;
         const name = target.name;
 
-        console.log(name);
-        console.log(value);
 
         this.setState({
             [name]: value
@@ -39,6 +38,8 @@ class Register extends React.Component {
         alert('A password was submitted: ' + this.state.password);
         event.preventDefault();
     }
+
+
 
     render() {
         return (
@@ -79,7 +80,7 @@ class Register extends React.Component {
                                    className="form-control-file" id="exampleFormControlFile1">
                             </input>
                         </div>
-                        {/*<Driver/>*/}
+                        <div id="driverInfo"/>
                         <button type="submit" className="btn btn-danger">Submit</button>
                     </form>
                 </div>
@@ -87,6 +88,20 @@ class Register extends React.Component {
         );
     }
 }
+
+function driverAditionalInfo(props) {
+    return <Driver/>;
+}
+
+function showAdInfo(props) {
+    const type = props.typed;
+    if(type=="driver"){
+        return <driverAditionalInfo />;
+    }
+    return null;
+}
+
+
 
 export default Register;
 
