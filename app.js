@@ -206,7 +206,7 @@ app.get("/usuarios", function (req, res) {
         res.json(usuarios);
     });
 });
-
+//Andrés Sandoval: El usuario donde lo recuperan dentro de la aplicación del servidor?
 //Crea un nuevo usuario con los valores dados por parámetro
 app.get("/nuevoUsuario", function (req, res) {
 
@@ -248,7 +248,7 @@ app.get("/deleteUsuario", function (req, res) {
 
     deleteUsuario(query);
 });
-
+//Andrés Sandoval: El viaje donde lo recuperan dentro de la aplicación del servidor?
 //Obtiene todos los viajes
 app.get("/viajes", function (req, res) {
 
@@ -256,7 +256,7 @@ app.get("/viajes", function (req, res) {
         res.json(viajes);
     });
 });
-
+//Andrés Sandoval: El viaje donde lo recuperan dentro de la aplicación del servidor?
 //Crea un viaje con los valores dados por parámetro
 app.get("/nuevoViaje", function (req, res) {
 
@@ -275,7 +275,7 @@ app.get("/nuevoViaje", function (req, res) {
 
     createViaje(viaje);
 });
-
+//Andrés Sandoval: Donde se vé reflejado en el front?
 app.get("/updateViaje", function (req,res) {
 
     var ori= req.param("origen");
