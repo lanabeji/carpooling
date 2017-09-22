@@ -1,9 +1,9 @@
 import React, {Component} from 'react';
-import Login from './Login.js';
 import Navbar from './Navbar.js';
 import Footer from './Footer.js';
-import Default from './Default.js';
-import Register from './Register';
+import User from './User.js';
+import Trips from './Trips.js';
+// import PropTypes from 'prop-types';
 import './App.css';
 
 class App extends Component {
@@ -15,7 +15,8 @@ class App extends Component {
                 <div className="App-content">
                     <section id="home">
                         <div className="App-content">
-                            <Register/>
+                            <User/>
+                            <Trips/>
                         </div>
                     </section>
                 </div>
@@ -26,4 +27,7 @@ class App extends Component {
     }
 }
 
+// App.propTypes = {
+//
+// }
 export default App;
