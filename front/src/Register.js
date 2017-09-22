@@ -54,16 +54,12 @@ class Register extends React.Component {
                     foto:""
                 })
             });
-            if (response.status === 460) {
-                alert('Ya existe un usuario con ese usuario')
-            }
-            else throw new Error('Respuesta por parte del servidor no manejada en el front')
         } catch (error) {
             console.log(error)
             alert(error)
         }
     }
-    
+
     render() {
         return (
             <div className="register-container">
