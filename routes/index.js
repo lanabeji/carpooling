@@ -305,5 +305,10 @@ function login(usuario) {
         dropTodo();
     });
 
+router.get("/", function (req,res) {
+    res.send("Hola?");
+});
+
+
 
 module.exports = router;

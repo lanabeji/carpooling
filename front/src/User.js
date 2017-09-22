@@ -18,12 +18,45 @@ class User extends Component {
         this.handleFileUpload = this.handleFileUpload.bind(this);
     }
 
-    handleFileUpload() {
+    handleFileUpload(event) {
 
+        var selectedFile = document.getElementById('fotoI').files[0];
+        this.setState({
+            foto: selectedFile
+        });
     }
 
-    handleSubmit() {
+    handleSubmit(event) {
+       // alert('A name was submitted: ' + this.state.name);
+       // alert('An username was submitted: ' + this.state.username);
+       // alert('A password was submitted: ' + this.state.password);
+        var nombre = document.getElementById("inputName").value;
 
+
+        event.preventDefault();
+        try {
+            fetch( '/createUsuario', { method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json'
+                },
+                body: JSON.stringify({
+
+                    name: this.state.name,
+                    username: "",
+                    password: "",
+                    tipo: "",
+                    profile_pic:this.state.foto ,
+                    placa: "",
+                    foto:"",
+                })
+            });
+            this.setState({
+                name: value
+            });
+        } catch (error) {
+            console.log(error)
+            alert(error)
+        }
     }
 
     render() {
@@ -43,7 +76,7 @@ class User extends Component {
                             <input name="name" id="inputName" placeholder="Somebody"/>
                         </div>
                         <div>
-                            <input type="file" onChange={this.handleFileUpload}/>
+                            <input type="file" id="fotoI" onChange={this.handleFileUpload}/>
                             <input type="submit" value="Submit" onSubmit={this.handleSubmit}/>
                         </div>
                     </form>
