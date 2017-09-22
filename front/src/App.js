@@ -7,6 +7,16 @@ import Trips from './Trips.js';
 import './App.css';
 
 class App extends Component {
+
+    constructor(props){
+        super(props);
+
+        this.state={
+            trips: []
+        }
+    }
+
+
     render() {
         return (
 
@@ -16,7 +26,7 @@ class App extends Component {
                     <section id="home">
                         <div className="App-content">
                             <User/>
-                            <Trips/>
+                            <Trips trips={this.state.trips}/>
                         </div>
                     </section>
                 </div>
