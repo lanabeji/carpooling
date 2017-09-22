@@ -37,10 +37,33 @@ class Register extends React.Component {
         alert('An username was submitted: ' + this.state.username);
         alert('A password was submitted: ' + this.state.password);
         event.preventDefault();
+
+        try {
+            fetch( '/createUsuario', { method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json'
+                },
+                body: JSON.stringify({
+
+                    name: this.state.name,
+                    username: this.state.username,
+                    password: this.state.password,
+                    tipo: this.state.type,
+                    profile_pic: this.state.profile_pic,
+                    placa: "",
+                    foto:""
+                })
+            });
+            if (response.status === 460) {
+                alert('Ya existe un usuario con ese usuario')
+            }
+            else throw new Error('Respuesta por parte del servidor no manejada en el front')
+        } catch (error) {
+            console.log(error)
+            alert(error)
+        }
     }
-
-
-
+    
     render() {
         return (
             <div className="register-container">
