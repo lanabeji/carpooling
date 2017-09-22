@@ -2,23 +2,38 @@
  * Created by Camilo on 22/09/17.
  */
 import React, {Component} from 'react';
+import Trip from './Trip.js';
+
 // import PropTypes from 'prop-types';
 
-class Trips extends Component{
+class Trips extends Component {
 
-    constructor(Props){
-        super(Props);
+    constructor(props) {
+        super(props);
+    }
 
-        this.state = {
-            date: new Date(),
-            trips: {}
+    renderTrips(){
+        if(this.props.trips.length==0){
+            return <h3>Nothing to show here! There are no trips available at this time!</h3>
+        }
+        else{
+            return this.props.trips.map((t, i) => {
+                return <Trip trip={t} key={i}/>;
+            });
         }
     }
 
-    render(){
-        return(<div className="tripsContainer">
+    validate(){
 
-        </div>);
+    }
+
+    render() {
+        return (
+            <div className="tripsContainer">
+                {this.renderTrips()}
+                {this.validate()}
+            </div>
+        );
     }
 
 }
