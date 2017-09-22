@@ -73,11 +73,20 @@ class User extends Component {
             return (
                 <div className="form">
                     <form action="/action_page.php">
-                        <div>Please insert your name
+                        <div className="formName">
+                            <div>insert your name</div>
                             <input name="name" id="inputName" placeholder="Somebody"/>
                         </div>
+<<<<<<< Updated upstream
                         <div>
                             <input type="file" id="fotoI" onChange={this.handleFileUpload}/>
+=======
+                        <div className="formImage">
+                            <input type="file" name="file" id="file" className="inputFile" onChange={this.handleFileUpload}/>
+                            <label for="file">Choose a file</label>
+                        </div>
+                        <div className="formSubmit">
+>>>>>>> Stashed changes
                             <input type="submit" value="Submit" onSubmit={this.handleSubmit}/>
                         </div>
                     </form>

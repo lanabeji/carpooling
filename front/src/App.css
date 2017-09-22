@@ -42,40 +42,61 @@ input{
   width: 100%;
 }
 
-.form-control-file{
+.form{
+  position: fixed;
   text-align: center;
-  margin: auto;
-}
-.boton:first-child{
-  margin-left: -10px;
-}
-.boton:nth-child(2){
-  margin-left: 10px;
-}
-
-.Form-container{
-  text-align: center;
+  width: 35vw;
+  margin: 0 2.5vw;
+  background-color: rgba(63, 191, 63, 0.7);
+  border-radius: 25px;
+  padding: 25px 25px 25px 25px;
   color: white;
-  width: 50%;
-  background-color: rgba(50,50,50,0.5);;
-  border-radius: 25px;
-  padding: 15px;
-  margin: auto;
 }
 
+.inputFile{
+  width: 0.1px;
+  height: 0.1px;
+  opacity: 0;
+  overflow: hidden;
+  position: absolute;
+  z-index: -1;
+}
 
-.description {
-  background-color: rgba(255, 255, 255, 0.1);
-  border-radius: 25px;
-  padding: 20px;
-  text-align: right;
+.inputfile + label {
+  font-size: 1.25em;
+  font-weight: 700;
+  color: white;
+  background-color: black;
+  display: inline-block;
+}
+
+.inputFile:focus + label,
+.inputFile + label:hover {
+  background-color: red;
+}
+
+.inputfile + label * {
+  pointer-events: none;
+}
+
+.inputFile + label {
+  cursor: pointer; /* "hand" cursor */
+}
+
+.form:last-child {
+  padding-bottom: 25px;
+}
+
+.formName,
+.formImage,
+.formSubmit{
+  padding: 10px 0;
+}
+
+.tripsContainer{
+  width: 60vw;
   float: right;
-  max-width: 40vw;
-
-  padding: 150px;
-  color: white;
 }
-
 
 
 #home {
