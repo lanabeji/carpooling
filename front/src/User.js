@@ -20,7 +20,8 @@ class User extends Component {
 
     handleFileUpload(event) {
 
-        var selectedFile = document.getElementById('fotoI').files[0];
+       // var selectedFile = document.getElementById('fotoI').files[0];
+        var selectedFile = event.target.value;
         this.setState({
             foto: selectedFile
         });
