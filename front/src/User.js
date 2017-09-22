@@ -13,13 +13,16 @@ class User extends Component {
             name: "",
             foto: "",
         }
+
+        this.handleSubmit = this.handleSubmit.bind(this);
+        this.handleFileUpload = this.handleFileUpload.bind(this);
     }
 
-    handleFileUpload(){
+    handleFileUpload() {
 
     }
 
-    handleSubmit(){
+    handleSubmit() {
 
     }
 
@@ -36,10 +39,13 @@ class User extends Component {
             return (
                 <div className="form">
                     <form action="/action_page.php">
-                        <div>Please insert your name</div>
-                        <input type="text" >
-                        <input type="file" onChange={this.handleFileUpload} />
-                        <input type="submit" value="Submit" onSubmit={this.handleSubmit}/>
+                        <div>Please insert your name
+                            <input name="name" id="inputName" placeholder="Somebody"/>
+                        </div>
+                        <div>
+                            <input type="file" onChange={this.handleFileUpload}/>
+                            <input type="submit" value="Submit" onSubmit={this.handleSubmit}/>
+                        </div>
                     </form>
                 </div>
             );

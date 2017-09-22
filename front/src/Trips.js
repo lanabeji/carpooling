@@ -2,7 +2,7 @@
  * Created by Camilo on 22/09/17.
  */
 import React, {Component} from 'react';
-import PropTypes from 'prop-types';
+// import PropTypes from 'prop-types';
 
 class Trips extends Component{
 
@@ -23,8 +23,8 @@ class Trips extends Component{
 
 }
 
-App.propTypes = {
-    trips: PropTypes.object.isRequired
-}
+// Trips.propTypes = {
+//     trips: PropTypes.object.isRequired
+// }
 
 export default Trips;

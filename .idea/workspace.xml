@@ -2,19 +2,9 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="2d658da3-9ad0-4d9b-8814-20efee714ded" name="Default" comment="">
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/front/src/Trips.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/front/src/User.js" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/front/src/Default.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/front/src/DriverInfo.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/front/src/Register.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/front/src/logo.svg" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/front/src/template.css" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/front/src/template.html" afterPath="" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/front/package.json" afterPath="$PROJECT_DIR$/front/package.json" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/front/src/App.js" afterPath="$PROJECT_DIR$/front/src/App.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/front/src/Navbar.js" afterPath="$PROJECT_DIR$/front/src/Navbar.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/front/yarn.lock" afterPath="$PROJECT_DIR$/front/yarn.lock" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/front/src/Trips.js" afterPath="$PROJECT_DIR$/front/src/Trips.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/front/src/User.js" afterPath="$PROJECT_DIR$/front/src/User.js" />
     </list>
     <ignored path="$PROJECT_DIR$/.tmp/" />
     <ignored path="$PROJECT_DIR$/temp/" />
@@ -57,12 +47,9 @@
       <file leaf-file-name="Trips.js" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/front/src/Trips.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="360">
-              <caret line="26" column="38" lean-forward="false" selection-start-line="26" selection-start-column="38" selection-end-line="26" selection-end-column="38" />
-              <folding>
-                <element signature="e#42#81#0" expanded="true" />
-                <marker date="1506110940000" expanded="true" signature="396:438" ph="{&quot;trips&quot;: PropTypes.object.isRequired...}" />
-              </folding>
+            <state relative-caret-position="45">
+              <caret line="5" column="0" lean-forward="true" selection-start-line="5" selection-start-column="0" selection-end-line="5" selection-end-column="0" />
+              <folding />
             </state>
           </provider>
         </entry>
@@ -70,8 +57,8 @@
       <file leaf-file-name="User.js" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/front/src/User.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="495">
-              <caret line="39" column="43" lean-forward="false" selection-start-line="39" selection-start-column="43" selection-end-line="39" selection-end-column="43" />
+            <state relative-caret-position="435">
+              <caret line="47" column="30" lean-forward="false" selection-start-line="47" selection-start-column="30" selection-end-line="47" selection-end-column="30" />
               <folding>
                 <element signature="e#42#81#0" expanded="true" />
               </folding>
@@ -350,12 +337,12 @@
       <workItem from="1505794387869" duration="1645000" />
       <workItem from="1505955068132" duration="65000" />
       <workItem from="1506096272227" duration="6970000" />
-      <workItem from="1506107939089" duration="3037000" />
+      <workItem from="1506107939089" duration="3293000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="19824000" />
+    <option name="totallyTimeSpent" value="20080000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="2" y="23" width="1278" height="735" extended-state="0" />
@@ -623,14 +610,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/front/public/index.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="0">
-          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/front/src/data/trips.js">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="0">
@@ -655,6 +634,14 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/front/public/index.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="0">
+          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/front/src/App.js">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="435">
@@ -667,19 +654,16 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/front/src/Trips.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="360">
-          <caret line="26" column="38" lean-forward="false" selection-start-line="26" selection-start-column="38" selection-end-line="26" selection-end-column="38" />
-          <folding>
-            <element signature="e#42#81#0" expanded="true" />
-            <marker date="1506110940000" expanded="true" signature="396:438" ph="{&quot;trips&quot;: PropTypes.object.isRequired...}" />
-          </folding>
+        <state relative-caret-position="45">
+          <caret line="5" column="0" lean-forward="true" selection-start-line="5" selection-start-column="0" selection-end-line="5" selection-end-column="0" />
+          <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/front/src/User.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="495">
-          <caret line="39" column="43" lean-forward="false" selection-start-line="39" selection-start-column="43" selection-end-line="39" selection-end-column="43" />
+        <state relative-caret-position="435">
+          <caret line="47" column="30" lean-forward="false" selection-start-line="47" selection-start-column="30" selection-end-line="47" selection-end-column="30" />
           <folding>
             <element signature="e#42#81#0" expanded="true" />
           </folding>
