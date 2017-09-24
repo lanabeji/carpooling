@@ -322,7 +322,7 @@ function login(usuario) {
     });
 
 router.get("/", function (req,res) {
-    res.send("Changes");
+    res.render('index', { title: 'Express' });
 });
 
 
