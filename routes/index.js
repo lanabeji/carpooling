@@ -66,13 +66,6 @@ function getViajes(callback){
         console.log("Get viajes function");
         var viajes = db.collection("viajes");
 
-        var cond = {conductor:"Camilo Alfonso"};
-
-        viajes.deleteMany(cond,function(err, obj) {
-            if (err) throw err;
-            console.log(obj.result.n + " document(s) deleted");
-        });
-
         viajes.find({}).toArray(function (mongoError, viajes) {
             if(mongoError) throw mongoError;
 
