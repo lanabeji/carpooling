@@ -16,6 +16,16 @@ class App extends Component {
         }
     }
 
+    componentDidMount(){
+
+        fetch('/getViajes').then(response => response.json())
+            .then(json => {
+                this.setState({
+                    trips: json.data
+                }, console.log(json));
+            });
+    }
+
 
     render() {
         return (

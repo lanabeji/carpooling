@@ -10,6 +10,7 @@ class User extends Component {
         super(Props);
 
         this.state = {
+            logged: false,
             name: "",
             foto: "",
         }
@@ -20,7 +21,7 @@ class User extends Component {
 
     handleFileUpload(event) {
 
-       // var selectedFile = document.getElementById('fotoI').files[0];
+        // var selectedFile = document.getElementById('fotoI').files[0];
         var selectedFile = event.target.value;
         this.setState({
             foto: selectedFile
@@ -28,15 +29,16 @@ class User extends Component {
     }
 
     handleSubmit(event) {
-       // alert('A name was submitted: ' + this.state.name);
-       // alert('An username was submitted: ' + this.state.username);
-       // alert('A password was submitted: ' + this.state.password);
+        // alert('A name was submitted: ' + this.state.name);
+        // alert('An username was submitted: ' + this.state.username);
+        // alert('A password was submitted: ' + this.state.password);
         var nombre = document.getElementById("inputName").value;
 
 
         event.preventDefault();
         try {
-            fetch( '/createUsuario', { method: 'POST',
+            fetch('/createUsuario', {
+                method: 'POST',
                 headers: {
                     'Content-Type': 'application/json'
                 },
@@ -46,13 +48,13 @@ class User extends Component {
                     username: "",
                     password: "",
                     tipo: "",
-                    profile_pic:this.state.foto ,
+                    profile_pic: this.state.foto,
                     placa: "",
-                    foto:"",
+                    foto: "",
                 })
             });
             this.setState({
-                name: value
+                name: nombre
             });
         } catch (error) {
             console.log(error)
@@ -60,8 +62,34 @@ class User extends Component {
         }
     }
 
+    validate() {
+
+        if (this.state.logged === false) {
+            return (
+                <form action="/action_page.php">
+                    <h3> Sign in with your plat </h3>
+                    <div className="formName">
+                        <div>insert your name</div>
+                        <input name="name" id="inputName" placeholder="Somebody"/>
+                    </div>
+                    <div>
+                        <input type="file" id="fotoI" onChange={this.handleFileUpload}/>
+                    </div>
+                    <div className="formSubmit">
+                        <input type="submit" value="Submit" onSubmit={this.handleSubmit}/>
+                    </div>
+                </form>
+            );
+        }
+        else {
+            return (
+                <h1> You've been logged!</h1>
+            )
+        }
+    }
+
     render() {
-        if (this.state.name != "" && this.state.foto != "") {
+        if (this.state.name !== "" && this.state.foto !== "") {
             return (
                 <div className="userContainer">
                     <img src={this.state.foto} alt={this.state.name + "userProfile"}/>
@@ -72,24 +100,7 @@ class User extends Component {
         else {
             return (
                 <div className="form">
-                    <form action="/action_page.php">
-                        <div className="formName">
-                            <div>insert your name</div>
-                            <input name="name" id="inputName" placeholder="Somebody"/>
-                        </div>
-<<<<<<< Updated upstream
-                        <div>
-                            <input type="file" id="fotoI" onChange={this.handleFileUpload}/>
-=======
-                        <div className="formImage">
-                            <input type="file" name="file" id="file" className="inputFile" onChange={this.handleFileUpload}/>
-                            <label for="file">Choose a file</label>
-                        </div>
-                        <div className="formSubmit">
->>>>>>> Stashed changes
-                            <input type="submit" value="Submit" onSubmit={this.handleSubmit}/>
-                        </div>
-                    </form>
+                    {this.validate()}
                 </div>
             );
         }
