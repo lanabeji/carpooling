@@ -33,7 +33,7 @@ class App extends Component {
         return (
 
             <div className="App">
-                <h1>Prueba</h1>
+                <h1>AAPrueba</h1>
                 {this.state.trips}
             </div>
 
