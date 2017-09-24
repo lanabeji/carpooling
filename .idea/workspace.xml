@@ -2,15 +2,6 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="2e64a4b2-f4aa-45e3-8586-34e97fb108d0" name="Default" comment="">
-      <change type="DELETED" beforePath="$PROJECT_DIR$/front/build/static/css/main.d19af05b.css" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/front/build/static/css/main.d19af05b.css.map" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/front/build/static/js/main.90792985.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/front/build/static/js/main.90792985.js.map" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/front/build/static/media/bg.392dea7e.jpg" afterPath="" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/front/build/asset-manifest.json" afterPath="$PROJECT_DIR$/front/build/asset-manifest.json" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/front/build/index.html" afterPath="$PROJECT_DIR$/front/build/index.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/front/build/service-worker.js" afterPath="$PROJECT_DIR$/front/build/service-worker.js" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/front/src/App.js" afterPath="$PROJECT_DIR$/front/src/App.js" />
     </list>
     <ignored path="$PROJECT_DIR$/.tmp/" />
@@ -28,8 +19,8 @@
       <file leaf-file-name="App.js" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/front/src/App.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="15">
-              <caret line="9" column="0" lean-forward="false" selection-start-line="9" selection-start-column="0" selection-end-line="9" selection-end-column="0" />
+            <state relative-caret-position="204">
+              <caret line="35" column="31" lean-forward="false" selection-start-line="35" selection-start-column="31" selection-end-line="35" selection-end-column="31" />
               <folding />
             </state>
           </provider>
@@ -141,6 +132,23 @@
               <item name="carpooling" type="b2602c69:ProjectViewProjectNode" />
               <item name="carpooling" type="462c0819:PsiDirectoryNode" />
               <item name="front" type="462c0819:PsiDirectoryNode" />
+              <item name="build" type="462c0819:PsiDirectoryNode" />
+              <item name="static" type="462c0819:PsiDirectoryNode" />
+              <item name="js" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="carpooling" type="b2602c69:ProjectViewProjectNode" />
+              <item name="carpooling" type="462c0819:PsiDirectoryNode" />
+              <item name="front" type="462c0819:PsiDirectoryNode" />
+              <item name="build" type="462c0819:PsiDirectoryNode" />
+              <item name="static" type="462c0819:PsiDirectoryNode" />
+              <item name="js" type="462c0819:PsiDirectoryNode" />
+              <item name="main.8e0087c4.js" type="620a8d5e:NestingTreeNode" />
+            </path>
+            <path>
+              <item name="carpooling" type="b2602c69:ProjectViewProjectNode" />
+              <item name="carpooling" type="462c0819:PsiDirectoryNode" />
+              <item name="front" type="462c0819:PsiDirectoryNode" />
               <item name="src" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
@@ -191,12 +199,12 @@
       <option name="presentableId" value="Default" />
       <updated>1506265514546</updated>
       <workItem from="1506265516836" duration="5585000" />
-      <workItem from="1506273503176" duration="2114000" />
+      <workItem from="1506273503176" duration="2977000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="7699000" />
+    <option name="totallyTimeSpent" value="8562000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="0" y="23" width="1280" height="773" extended-state="0" />
@@ -344,8 +352,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/front/src/App.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="15">
-          <caret line="9" column="0" lean-forward="false" selection-start-line="9" selection-start-column="0" selection-end-line="9" selection-end-column="0" />
+        <state relative-caret-position="204">
+          <caret line="35" column="31" lean-forward="false" selection-start-line="35" selection-start-column="31" selection-end-line="35" selection-end-column="31" />
           <folding />
         </state>
       </provider>
