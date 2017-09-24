@@ -1,0 +1,10 @@
+<Navbar/>
+                <div className="App-content">
+                    <section id="home">
+                        <div className="App-content">
+                            <User/>
+                            <Trips trips={this.state.trips}/>
+                        </div>
+                    </section>
+                </div>
+                <Footer/>

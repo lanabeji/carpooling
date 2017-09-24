@@ -31,16 +31,7 @@ class App extends Component {
         return (
 
             <div className="App">
-                <Navbar/>
-                <div className="App-content">
-                    <section id="home">
-                        <div className="App-content">
-                            <User/>
-                            <Trips trips={this.state.trips}/>
-                        </div>
-                    </section>
-                </div>
-                <Footer/>
+                {this.state.trips}
             </div>
 
         );
