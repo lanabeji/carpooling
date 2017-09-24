@@ -8,6 +8,8 @@ import './App.css';
 
 class App extends Component {
 
+
+
     constructor(props){
         super(props);
 
@@ -31,6 +33,7 @@ class App extends Component {
         return (
 
             <div className="App">
+                Prueba
                 {this.state.trips}
             </div>
 
