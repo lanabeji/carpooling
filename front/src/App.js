@@ -18,12 +18,15 @@ class App extends Component {
         }
     }
 
-    componentWillMount(){
+    componentDidMount(){
         fetch('/getViajes').then(response => response.json())
             .then(json => {
                 this.setState({
                     trips: json.data
-                }, console.log("Hola" + json));
+                }, function () {
+                    console.log("Datos cargados: "+json.data.length()+" registros");
+                    console.log("Ahora hay: "+this.state.trips.length+" registros en los PROPS (APP)");
+                });
             });
     }
 
