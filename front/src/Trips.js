@@ -13,8 +13,8 @@ class Trips extends Component {
     }
 
     renderTrips(){
-        console.log("Se han recibido: "+this.props.trips.length+" registros como PROPS en el TripPrinter")
-        if(this.props.trips.length===0){
+        console.log("Se han recibido: "+this.props.trips.length+" registros como PROPS en el TripPrinter");
+        if(this.props.trips.length===0 || !this.props.trips instanceof Object){
             return <h3>Nothing to show here! There are no trips available at this time!</h3>
         }
         else{
