@@ -9,23 +9,26 @@ import './App.css';
 class App extends Component {
 
 
-
-    constructor(props){
+    constructor(props) {
         super(props);
 
-        this.state={
+        this.state = {
             trips: []
         }
     }
 
-    componentWillMount(){
-        fetch('/getViajes').then(response => response.json())
-            .then(json => {
+    componentDidMount() {
+        fetch('/getViajes')
+            .then(res => res.json())
+            .then(trips => {
                 this.setState({
-                    trips: json.data
+                    trips
                 }, function () {
-                    console.log("Datos cargados: "+json.data.length()+" registros");
-                    console.log("Ahora hay: "+this.state.trips.length+" registros en los PROPS (APP)");
+                    this.forceUpdate();
+                    console.log("Estado:");
+                    console.log(this.state.trips);
+                    console.log("JSON:");
+                    console.log(trips);
                 });
             });
     }

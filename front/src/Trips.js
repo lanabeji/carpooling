@@ -8,12 +8,12 @@ import Trip from './Trip.js';
 
 class Trips extends Component {
 
-    constructor(props) {
-        super(props);
-    }
+    // constructor(props) {
+    //     super(props);
+    // }
 
     renderTrips() {
-        if (!this.props.trips instanceof Object) {
+
             console.log("Se han recibido: " + this.props.trips.length + " registros como PROPS en el TripPrinter");
             if (this.props.trips.length === 0) {
                 return <h3>Nothing to show here! There are no trips available at this time!</h3>
@@ -23,11 +23,7 @@ class Trips extends Component {
                     return <Trip trip={t} key={i}/>;
                 });
             }
-        }
-        else{
-            console.log("El tipo de los archivos es:"+typeof this.props.trips);
-            return <h3>There's been a problem while we were loading data!</h3>
-        }
+
     }
 
     validate() {
