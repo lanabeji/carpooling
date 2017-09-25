@@ -18,7 +18,7 @@ class App extends Component {
         }
     }
 
-    componentDidMount(){
+    componentWillMount(){
         fetch('/getViajes').then(response => response.json())
             .then(json => {
                 this.setState({
