@@ -12,19 +12,25 @@ class Trips extends Component {
         super(props);
     }
 
-    renderTrips(){
-        console.log("Se han recibido: "+this.props.trips.length+" registros como PROPS en el TripPrinter");
-        if(this.props.trips.length===0 || !this.props.trips instanceof Object){
-            return <h3>Nothing to show here! There are no trips available at this time!</h3>
+    renderTrips() {
+        if (!this.props.trips instanceof Object) {
+            console.log("Se han recibido: " + this.props.trips.length + " registros como PROPS en el TripPrinter");
+            if (this.props.trips.length === 0) {
+                return <h3>Nothing to show here! There are no trips available at this time!</h3>
+            }
+            else {
+                return this.props.trips.map((t, i) => {
+                    return <Trip trip={t} key={i}/>;
+                });
+            }
         }
         else{
-            return this.props.trips.map((t, i) => {
-                return <Trip trip={t} key={i}/>;
-            });
+            console.log("El tipo de los archivos es:"+typeof this.props.trips);
+            return <h3>There's been a problem while we were loading data!</h3>
         }
     }
 
-    validate(){
+    validate() {
 
     }
 
