@@ -13,6 +13,8 @@ class Trips extends Component {
     }
 
     renderTrips(){
+        console.log(this.props.trips);
+        console.log(this.props.trips.length)
         if(this.props.trips.length===0){
             return <h3>Nothing to show here! There are no trips available at this time!</h3>
         }
