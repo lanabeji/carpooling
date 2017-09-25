@@ -63,56 +63,6 @@ function deleteUsuario(myquery) {
 function getViajes(callback) {
 
 
-    var nuevo1 = {
-        origen: "Uniandes",
-        destino: "Cajicá",
-        horaEncuentro: "2:00 p.m",
-        fecha: "27/Sep/2017",
-        valor: 5000,
-        cupos: 3,
-        pasajeros: [],
-        conductor: "Camilo Alfonso"
-    };
-    var nuevo2 = {
-        origen: "Zipaquirá",
-        destino: "Cajicá",
-        horaEncuentro: "5:00 p.m",
-        fecha: "28/Sep/2017",
-        valor: 2000,
-        cupos: 3,
-        pasajeros: [],
-        conductor: "Laura Bello"
-    };
-    var nuevo3 = {
-        origen: "Chía",
-        destino: "Cajicá",
-        horaEncuentro: "7:00 a.m",
-        fecha: "29/Sep/2017",
-        valor: 2000,
-        cupos: 3,
-        pasajeros: [],
-        conductor: "Andrés Gomez"
-    };
-    var nuevo4 = {
-        origen: "Cajicá",
-        destino: "Uniandes",
-        horaEncuentro: "5:00 a.m",
-        fecha: "30/Sep/2017",
-        valor: 5000,
-        cupos: 3,
-        pasajeros: [],
-        conductor: "Felipe Gutierrez"
-    };
-    var nuevo5 = {
-        origen: "Chía",
-        destino: "Zipaquirá",
-        horaEncuentro: "7:00 p.m",
-        fecha: "01/Oct/2017",
-        valor: 3000,
-        cupos: 3,
-        pasajeros: [],
-        conductor: "Alvaro Dueñas"
-    };
 
     mongodb.connect(url, function (err, db) {
         if (err) throw err;
@@ -120,30 +70,6 @@ function getViajes(callback) {
         console.log("Get viajes function");
         var viajes = db.collection("viajes");
 
-        viajes.insertOne(nuevo1, function (err, res) {
-            if (err) throw err;
-            console.log("1 document inserted");
-        });
-
-        viajes.insertOne(nuevo2, function (err, res) {
-            if (err) throw err;
-            console.log("1 document inserted");
-        });
-
-        viajes.insertOne(nuevo3, function (err, res) {
-            if (err) throw err;
-            console.log("1 document inserted");
-        });
-
-        viajes.insertOne(nuevo4, function (err, res) {
-            if (err) throw err;
-            console.log("1 document inserted");
-        });
-
-        viajes.insertOne(nuevo5, function (err, res) {
-            if (err) throw err;
-            console.log("1 document inserted");
-        });
 
         viajes.find({}).toArray(function (mongoError, viajes) {
             if (mongoError) throw mongoError;
