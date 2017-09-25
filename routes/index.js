@@ -66,22 +66,6 @@ function getViajes(callback){
         console.log("Get viajes function");
         var viajes = db.collection("viajes");
 
-        var nuevo =[{origen:"Zipaquirá", destino:"Uniandes", horaEncuentro:"8:00 a.m", fecha:"25/Sep/2017", valor: 7000, cupos:5, pasajeros:[], conductor:"Camilo Alfonso"},
-            {origen:"Uniandes", destino:"Cajicá", horaEncuentro:"7:00 p.m", fecha:"29/Sep/2017", valor: 5000, cupos:3, pasajeros:[], conductor:"Camilo Alfonso"},
-            {origen:"Chía", destino:"Uniandes", horaEncuentro:"5:00 a.m", fecha:"28/Sep/2017", valor: 4000, cupos:4, pasajeros:[], conductor:"Camilo Alfonso"},
-            {origen:"Chía", destino:"Uniandes", horaEncuentro:"6:00 a.m", fecha:"27/Sep/2017", valor: 5000, cupos:4, pasajeros:[], conductor:"Camilo Alfonso"},
-            {origen:"Cajicá", destino:"Uniandes", horaEncuentro:"10:00 a.m", fecha:"02/Oct/2017", valor: 5000, cupos:5, pasajeros:[], conductor:"Camilo Alfonso"},
-            {origen:"Uniandes", destino:"Cajicá", horaEncuentro:"8:00 p.m", fecha:"03/Oct/2017", valor: 4000, cupos:5, pasajeros:[], conductor:"Camilo Alfonso"},
-            {origen:"Uniandes", destino:"Chía", horaEncuentro:"3:00 p.m", fecha:"25/Sep/2017", valor: 5000, cupos:4, pasajeros:[], conductor:"Camilo Alfonso"},
-            {origen:"Uniandes", destino:"Zipaquirá", horaEncuentro:"6:00 p.m", fecha:"26/Sep/2017", valor: 6000, cupos:5, pasajeros:[], conductor:"Camilo Alfonso"},
-            {origen:"Uniandes", destino:"Cajicá", horaEncuentro:"4:00 p.m", fecha:"27/Sep/2017", valor: 5000, cupos:5, pasajeros:[], conductor:"Camilo Alfonso"},
-            {origen:"Chía", destino:"Uniandes", horaEncuentro:"8:00 a.m", fecha:"27/Sep/2017", valor: 5000, cupos:5, pasajeros:[], conductor:"Camilo Alfonso"},
-            {origen:"Cajicá", destino:"Uniandes", horaEncuentro:"6:30 a.m", fecha:"04/Oct/2017", valor: 5000, cupos:2, pasajeros:[], conductor:"Camilo Alfonso"},
-        ];
-        viajes.insertMany(nuevo, function (err, res) {
-            if (err) throw err;
-            console.log("1 document inserted");
-        });
         viajes.find({}).toArray(function (mongoError, viajes) {
             if(mongoError) throw mongoError;
 
