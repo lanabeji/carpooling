@@ -19,7 +19,6 @@ class App extends Component {
     }
 
     componentDidMount(){
-
         fetch('/getViajes').then(response => response.json())
             .then(json => {
                 this.setState({
@@ -33,8 +32,16 @@ class App extends Component {
         return (
 
             <div className="App">
-                <h1>AAPrueba</h1>
-                {this.state.trips}
+                <Navbar/>
+                <div className="App-content">
+                    <section id="home">
+                        <div className="App-content">
+                            <User/>
+                            <Trips trips={this.state.trips}/>
+                        </div>
+                    </section>
+                </div>
+                <Footer/>
             </div>
 
         );

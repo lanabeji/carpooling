@@ -10,7 +10,7 @@ class Trip extends Component{
     }
 
     render(){
-        return "trip";
+        return <h1>trip</h1>;
     }
 
 }
