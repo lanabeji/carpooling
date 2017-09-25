@@ -23,7 +23,7 @@ class App extends Component {
             .then(json => {
                 this.setState({
                     trips: json.data
-                }, console.log(json));
+                }, console.log("Hola" + json));
             });
     }
 
