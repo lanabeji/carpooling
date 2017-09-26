@@ -23,12 +23,6 @@ class App extends Component {
             .then(trips => {
                 this.setState({
                     trips
-                }, function () {
-                    this.forceUpdate();
-                    console.log("Estado:");
-                    console.log(this.state.trips);
-                    console.log("JSON:");
-                    console.log(trips);
                 });
             });
     }

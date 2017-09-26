@@ -88,14 +88,11 @@ function login(usuario) {
 
         var usuarios = db.collecion("usuarios");
 
-        usuarios.find({usuario}).toArray(function (mongoError, viajes) {
-            if (mongoError) throw mongoError;
+        var success = usuarios.find(usuario);
+        console.log("pero si entra");
+        console.log(success);
 
-            console.log(usuarios.length);
-            callback(usuarios);
-
-            db.close();
-        });
+        db.close();
     });
 }
 
@@ -157,10 +154,11 @@ function dropTodo() {
 router.post("/login", function (req, res) {
     var usern = req.body.username;
     var pass = req.body.password;
-
+    console.log("username: "+usern+" password: "+pass);
     var usuario = {username: usern, password: pass};
-    login(usuario);
-    console.log("Usuario login index.js");
+    if(login(usuario)){
+        res(true)
+    }
 });
 
 router.get("/getUsuarios", function (req, res) {
