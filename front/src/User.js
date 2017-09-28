@@ -25,6 +25,7 @@ class User extends Component {
         this.handleChange = this.handleChange.bind(this);
         this.handleRegister = this.handleRegister.bind(this);
         this.handleReq = this.handleReq.bind(this);
+        this.handleCreateTrip = this.handleCreateTrip.bind(this);
         this.handleCancel = this.handleCancel.bind(this);
         this.handleTypeChange = this.handleTypeChange.bind(this);
         this.handleLogin = this.handleLogin.bind(this);
@@ -32,6 +33,24 @@ class User extends Component {
     }
 
 
+    handleCreateTrip(event) {
+        const target = event.target;
+        const value = target.value;
+        const name = target.name;
+
+        fetch('/createViaje',
+            {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json'
+                },
+                body: JSON.stringify({
+                        [name]: value
+                    }
+                )
+
+            });
+    }
 
     handleRegister() {
         this.setState({logged: 1});
@@ -57,6 +76,7 @@ class User extends Component {
                 })
             });
             alert('User: ' + this.state.username + ' has been registered succesfully');
+            console.log("Estado: "+this.state.logged);
             this.setState({logged: 2});
         } catch (error) {
             console.log(error)
@@ -75,19 +95,19 @@ class User extends Component {
     handleLogin() {
 
         try {
-            fetch('/login', {
-                method: 'POST',
-                body: JSON.stringify({
-
-                    name: this.state.pileName,
-                    username: this.state.username,
-                    password: this.state.password,
-                    tipo: this.state.type,
-                    profile_pic: this.state.profilePic,
-                    placa: this.state.plates,
-                    foto: this.state.carPicture,
-                })
-            });
+            // fetch('/login', {
+            //     method: 'POST',
+            //     body: JSON.stringify({
+            //
+            //         name: this.state.pileName,
+            //         username: this.state.username,
+            //         password: this.state.password,
+            //         tipo: this.state.type,
+            //         profile_pic: this.state.profilePic,
+            //         placa: this.state.plates,
+            //         foto: this.state.carPicture,
+            //     })
+            // });
             alert('User: ' + this.state.username + ' has logged in');
             this.setState({logged: 2});
         } catch (error) {
@@ -97,7 +117,7 @@ class User extends Component {
 
     }
 
-    handleLogout(){
+    handleLogout() {
         this.setState({
             username: "",
             password: "",
@@ -107,7 +127,7 @@ class User extends Component {
             plates: "",
             carPicture: null,
             logged: 0,
-            });
+        });
     }
 
     handleChange(event) {
@@ -159,7 +179,6 @@ class User extends Component {
 
 
     validateType() {
-        console.log(this.state.type);
         if (this.state.type === "driver") {
             return (
                 <div>
@@ -183,18 +202,16 @@ class User extends Component {
                 <form>
                     <h3>Sign In</h3>
                     <div>
-                        <label>UserName</label>
+                        <div><label>UserName</label></div>
                         <input type="text" name="username" onChange={this.handleChange}/>
                     </div>
                     <div>
-                        <label>Password</label>
+                        <div><label>Password</label></div>
                         <input type="password" name="password" onChange={this.handleChange}/>
                     </div>
-                    <div>
-                        <input type="button" value="Sign up" onClick={this.handleRegister}/>
-                    </div>
-                    <div>
-                        <input type="button" value="Log in" onClick={this.handleLogin}/>
+                    <div className="btnArea">
+                        <button onClick={this.handleRegister}> Sign up</button>
+                        <button onClick={this.handleLogin}> Log in</button>
                     </div>
                 </form>
             );
@@ -205,23 +222,20 @@ class User extends Component {
                 <form>
                     <h3>Sign up</h3>
                     <div>
-                        <label>Username</label>
-                        <input type="text" name="username" onChange={this.handleChange}/>
+                        <input placeholder="Username" type="text" name="username" onChange={this.handleChange}/>
                     </div>
                     <div>
-                        <label>Password</label>
-                        <input type="password" name="password" onChange={this.handleChange}/>
+                        <input placeholder="Password" type="password" name="password" onChange={this.handleChange}/>
                     </div>
                     <div>
-                        <label>Pile name</label>
-                        <input type="text" name="pileName" onChange={this.handleChange}/>
+                        <input placeholder="Pile name" type="text" name="pileName" onChange={this.handleChange}/>
                     </div>
                     <div>
                         <label>Profile picture</label>
                         <input type="file" name="profilePic" onChange={this.handleChange}/>
                     </div>
                     <div>
-                        <label>Type</label>
+                        <div><label>Type</label></div>
                         <select name="type" onChange={this.handleTypeChange}>
                             <option value="passenger">Passenger</option>
                             <option value="driver">Driver</option>
@@ -240,22 +254,54 @@ class User extends Component {
 
         else if (this.state.logged === 2) {
             return (
-                <form>
-                    <div>Welcome, {this.state.pileName}</div>
-                    <div><img src={this.state.profilePic} alt={this.state.username+"_Avatar"}/></div>
-                    <div>
-                        <input type="button" onClick={this.handleLogout}/>
-                    </div>
-                </form>
+                <div>
+                    <form>
+                        <div>Welcome, {this.state.pileName}</div>
+                        <div><img src={this.state.profilePic} alt={this.state.username + "_Avatar"}/></div>
+                        <div>
+                            <input type="button" onClick={this.handleLogout}/>
+                        </div>
+                    </form>
+                </div>
             )
         }
     }
+
+    validateDriver() {
+        if (this.state.logged === 2 && this.state.type === "driver") {
+            return (
+                <div className="createTrip">
+                    <div><h2>Create a new Trip</h2></div>
+                    <div>
+                        <input placeholder="Origin" type="text" name="username" onChange={this.handleChange}/>
+                    </div>
+                    <div>
+                        <input placeholder="Destination" type="text" name="username" onChange={this.handleChange}/>
+                    </div>
+                    <div>
+                        <input placeholder="Date" type="date" name="username" onChange={this.handleChange}/>
+                    </div>
+                    <div>
+                        <input placeholder="12:00" type="time" name="username" onChange={this.handleChange}/>
+                    </div>
+                    <div>
+                        <input placeholder="Cost" type="text" name="username" onChange={this.handleChange}/>
+                    </div>
+                    <div>
+                        <input type="button" value="CreateTrip" onClick={this.handleCreateTrip}/>
+                    </div>
+                </div>
+            );
+        }
+    }
+
 
     render() {
 
         return (
             <div className="form">
                 {this.validate()}
+                {this.validateDriver()}
             </div>
         );
 

@@ -86,7 +86,7 @@ function login(usuario) {
     mongodb.connect(url, function (err, db) {
         if (err) throw err;
 
-        var usuarios = db.collecion("usuarios");
+        var usuarios = db.collection("usuarios");
 
         var success = usuarios.find(usuario);
         console.log("pero si entra");
