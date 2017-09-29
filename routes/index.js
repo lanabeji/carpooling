@@ -206,10 +206,11 @@ router.post("/login", function (req, res) {
                 console.log("Encontré el usuario");
                 res.status(200)
                 res.send(usuarios[0].json);
+                db.close();
             }
             console.log("No hay nada");
-            console.log("Mando error");
             res.sendStatus(460);
+            db.close();
         });
     });
 });
