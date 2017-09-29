@@ -204,10 +204,11 @@ router.post("/login", function (req, res) {
             if (err2) throw err2;
             if(usuarios.length>0){
                 console.log("Encontré el usuario");
-                res.status(200);
-                res.json(usuarios[0]);
+                res.status(200)
+                res.send(usuarios[0].json);
             }
             console.log("No hay nada");
+            console.log("Mando error");
             res.sendStatus(460);
         });
     });

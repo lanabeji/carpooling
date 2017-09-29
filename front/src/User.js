@@ -109,13 +109,17 @@ class User extends Component {
              })
          }
         )
-        if (response.status === 401) {
-            alert('Contraseña errónea')
-        } else if (response.status === 460) {
+        if (response.status === 460) {
             alert('No existe un usuario registrado con ese nombre de usuario')
         } else if(response.status === 200){
             alert('User: ' + this.state.username + ' has logged in');
-            this.setState({logged: 2});
+            this.setState({
+                logged: 2,
+                username: this.state.username,
+                password: this.state.password,
+                pileName: this.state.username
+            });
+
         }
     }
 
