@@ -33,6 +33,11 @@ function createUsuario(nuevo) {
     });
 };
 
+function login(nuevo) {
+
+
+};
+
 function updateUsuario(myquery, newvalues) {
 
     mongodb.connect(url, function (err, db) {
@@ -75,8 +80,6 @@ function findByPassword(password, callback){
 
 //Saca todos los viajes de la coleccion viajes
 function getViajes(callback) {
-
-
 
     mongodb.connect(url, function (err, db) {
         if (err) throw err;
@@ -161,27 +164,52 @@ function dropTodo() {
 //     }
 // });
 
-router.post("/login", function(req, res){
+// router.post("/login", function(req, res){
+//
+//     console.log("estoy en login de index.js");
+//     findByUser(req.body.username,function(err,user){
+//         if(err){
+//             console.log("error de usuario");
+//             return res.status(400).json({error:err});
+//         }
+//         if(!user) return res.status(206).json({message:"That user doesn't exist"}).end();
+//
+//         findByPassword(req.body.password,function(err,userMail){
+//             if(err){
+//                 console.log("error de pass");
+//                 return res.status(400).json({error:err});
+//             }
+//             if(!userMail) return res.status(204).json({message:"Wrong Password"}).end();
+//             console.log("encontro pass" + userMail);
+//
+//             res.status(200);
+//             res.send(userMail);
+//         })
+//     });
+// });
 
-    console.log("estoy en login de index.js");
-    findByUser(req.body.username,function(err,user){
-        if(err){
-            console.log("error de usuario");
-            return res.status(400).json({error:err});
-        }
-        if(!user) return res.status(206).json({message:"That user doesn't exist"}).end();
+router.post("/login", function (req, res) {
 
-        findByPassword(req.body.password,function(err,userMail){
-            if(err){
-                console.log("error de pass");
-                return res.status(400).json({error:err});
+    var usernam = req.body.username;
+    var pass = req.body.password;
+
+    var nuevo = {username: usernam, password: pass};
+
+
+    mongodb.connect(url, function (err, db) {
+        if (err) throw err;
+        var usuarios = db.collection("usuarios");
+
+        usuarios.find(nuevo).toArray(function (err2, usuarios) {
+            if (err2) throw err2;
+            if(usuarios.length>0){
+                console.log("Encontré el usuario");
+                res.status(200);
+                res.json(usuarios[0]);
             }
-            if(!userMail) return res.status(204).json({message:"Wrong Password"}).end();
-            console.log("encontro pass" + userMail);
-
-            res.status(200);
-            res.send(userMail);
-        })
+            console.log("No hay nada");
+            res.sendStatus(460);
+        });
     });
 });
 

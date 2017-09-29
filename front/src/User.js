@@ -92,11 +92,11 @@ class User extends Component {
         this.setState({type: event.target.value});
     }
 
-    handleLogin(event) {
+    async handleLogin(event) {
         event.preventDefault();
         console.log("Hola, estoy en user.js ");
 
-        fetch("/login",
+        let response = await fetch("/login",
              {
              method: 'POST',
             headers: {
@@ -104,13 +104,19 @@ class User extends Component {
              },
              body: JSON.stringify({
 
-                // username: this.state.username,
-                // password: this.state.password
+                username: this.state.username,
+                password: this.state.password
              })
          }
         )
-        alert('User: ' + this.state.username + ' has logged in');
-        this.setState({logged: 2});
+        if (response.status === 401) {
+            alert('Contraseña errónea')
+        } else if (response.status === 460) {
+            alert('No existe un usuario registrado con ese nombre de usuario')
+        } else if(response.status === 200){
+            alert('User: ' + this.state.username + ' has logged in');
+            this.setState({logged: 2});
+        }
     }
 
 
