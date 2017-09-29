@@ -59,6 +59,20 @@ function deleteUsuario(myquery) {
 };
 
 
+function findByUser(userna, callback){
+    var users = db.get().collection("usuarios");
+    users.findOne({username:userna}, function(err, user){
+        callback(err, user);
+    });
+};
+
+function findByPassword(password, callback){
+    var users = db.get().collection("usuarios");
+    users.findOne({password:password}, function(err, user){
+        callback(err, user);
+    });
+};
+
 //Saca todos los viajes de la coleccion viajes
 function getViajes(callback) {
 
@@ -81,20 +95,6 @@ function getViajes(callback) {
         });
     });
 };
-
-function login(usuario) {
-    mongodb.connect(url, function (err, db) {
-        if (err) throw err;
-
-        var usuarios = db.collection("usuarios");
-
-        var success = usuarios.find(usuario);
-        console.log("pero si entra");
-        console.log(success);
-
-        db.close();
-    });
-}
 
 //Lo mismo de usuario pero con viaje
 function createViaje(viaje) {
@@ -151,14 +151,38 @@ function dropTodo() {
 };
 
 
-router.post("/login", function (req, res) {
-    var usern = req.body.username;
-    var pass = req.body.password;
-    console.log("username: "+usern+" password: "+pass);
-    var usuario = {username: usern, password: pass};
-    if(login(usuario)){
-        res(true)
-    }
+// router.post("/login", function (req, res) {
+//     var usern = req.body.username;
+//     var pass = req.body.password;
+//     console.log("username: "+usern+" password: "+pass);
+//     var usuario = {username: usern, password: pass};
+//     if(login(usuario)){
+//         res(true)
+//     }
+// });
+
+router.post("/login", function(req, res){
+
+    console.log("estoy en login de index.js");
+    findByUser(req.body.username,function(err,user){
+        if(err){
+            console.log("error de usuario");
+            return res.status(400).json({error:err});
+        }
+        if(!user) return res.status(206).json({message:"That user doesn't exist"}).end();
+
+        findByPassword(req.body.password,function(err,userMail){
+            if(err){
+                console.log("error de pass");
+                return res.status(400).json({error:err});
+            }
+            if(!userMail) return res.status(204).json({message:"Wrong Password"}).end();
+            console.log("encontro pass" + userMail);
+
+            res.status(200);
+            res.send(userMail);
+        })
+    });
 });
 
 router.get("/getUsuarios", function (req, res) {

@@ -92,30 +92,28 @@ class User extends Component {
         this.setState({type: event.target.value});
     }
 
-    handleLogin() {
+    handleLogin(event) {
+        event.preventDefault();
+        console.log("Hola, estoy en user.js ");
 
-        try {
-            // fetch('/login', {
-            //     method: 'POST',
-            //     body: JSON.stringify({
-            //
-            //         name: this.state.pileName,
-            //         username: this.state.username,
-            //         password: this.state.password,
-            //         tipo: this.state.type,
-            //         profile_pic: this.state.profilePic,
-            //         placa: this.state.plates,
-            //         foto: this.state.carPicture,
-            //     })
-            // });
-            alert('User: ' + this.state.username + ' has logged in');
-            this.setState({logged: 2});
-        } catch (error) {
-            console.log(error)
-            alert(error)
-        }
+        fetch("/login",
+             {
+             method: 'POST',
+            headers: {
+               'Content-Type': 'application/json'
+             },
+             body: JSON.stringify({
 
+                // username: this.state.username,
+                // password: this.state.password
+             })
+         }
+        )
+        alert('User: ' + this.state.username + ' has logged in');
+        this.setState({logged: 2});
     }
+
+
 
     handleLogout() {
         this.setState({
@@ -130,18 +128,24 @@ class User extends Component {
         });
     }
 
-    handleChange(event) {
-        const target = event.target;
-        const value = target.value;
-        const name = target.name;
 
-        this.setState({
-            [name]: value
-        });
+    // handleChange(event) {
+    //     const target = event.target;
+    //     const value = event.target.value;
+    //     const name = target.name;
+    //
+    //     this.setState({
+    //         [name]: value
+    //     });
+    //
+    //
+    // }
 
-        console.log(name + ": " + value);
+    handleChange (e) {
+        this.setState({[e.target.name]: e.target.value})
+
+        console.log(e.target.name + ": " + e.target.value);
     }
-
 
     handleSubmit(event) {
         // alert('A name was submitted: ' + this.state.name);
@@ -259,7 +263,7 @@ class User extends Component {
                         <div>Welcome, {this.state.pileName}</div>
                         <div><img src={this.state.profilePic} alt={this.state.username + "_Avatar"}/></div>
                         <div>
-                            <input type="button" onClick={this.handleLogout}/>
+                            <input type="button" value="Logout" onClick={this.handleLogout}/>
                         </div>
                     </form>
                 </div>
